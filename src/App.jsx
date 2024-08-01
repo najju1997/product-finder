@@ -1,8 +1,6 @@
-// App.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import FileUpload from './components/FileUpload';
 import BarcodeScanner from './components/BarcodeScanner';
-import QRScanner from './components/QRScanner'; // Import the QRScanner component
 import logo from './assets/logo.png';
 
 const App = () => {
@@ -14,7 +12,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6 transition-transform duration-500 ease-in-out hover:scale-105">
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
       <style>
         {`
           @keyframes slow-heartbeat {
@@ -45,9 +43,6 @@ const App = () => {
             <BarcodeScanner productData={productData} />
           </div>
         )}
-        <div className="mt-6">
-          <QRScanner /> {/* Include the QR scanner component */}
-        </div>
       </div>
     </div>
   );
