@@ -10,12 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "@zxing/library": "^0.21.2",
     "barcode-generator": "^0.1.0",
     "react": "^18.3.1",
     "react-barcode": "^1.5.3",
     "react-barcode-reader": "^0.0.2",
     "react-dom": "^18.3.1",
+    "react-qr-scanner": "^1.0.0-alpha.11",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
