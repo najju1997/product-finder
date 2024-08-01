@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState } from 'react';
 import FileUpload from './components/FileUpload';
 import BarcodeScanner from './components/BarcodeScanner';
@@ -13,7 +14,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
+    <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6 transition-transform duration-500 ease-in-out hover:scale-105">
       <style>
         {`
           @keyframes slow-heartbeat {

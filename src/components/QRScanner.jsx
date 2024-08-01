@@ -1,10 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { BrowserMultiFormatReader } from '@zxing/library';
+// QRScanner.jsx
+import React, { useState, useEffect } from 'react';
+import QrReader from 'react-qr-reader';
 
 const QRScanner = () => {
-  const videoRef = useRef(null);
   const [data, setData] = useState('No result');
-  const [error, setError] = useState('');
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -12,38 +11,31 @@ const QRScanner = () => {
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const mobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
     setIsMobile(mobile);
-
-    if (mobile) {
-      const codeReader = new BrowserMultiFormatReader();
-
-      const startScanning = () => {
-        codeReader.decodeFromVideoDevice(null, videoRef.current, (result, err) => {
-          if (result) {
-            setData(result.text);
-          }
-          if (err) {
-            setError(err.message);
-          }
-        });
-      };
-
-      startScanning();
-
-      return () => {
-        codeReader.reset();
-      };
-    }
   }, []);
 
   if (!isMobile) {
     return <p>QR Scanner is only available on mobile devices.</p>;
   }
 
+  const handleScan = (result) => {
+    if (result) {
+      setData(result);
+    }
+  };
+
+  const handleError = (error) => {
+    console.error(error);
+  };
+
   return (
     <div>
-      <video ref={videoRef} style={{ width: '100%' }} />
+      <QrReader
+        delay={300}
+        onScan={handleScan}
+        onError={handleError}
+        style={{ width: '100%' }}
+      />
       <p>Result: {data}</p>
-      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
     </div>
   );
 };
