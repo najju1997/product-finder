@@ -1,8 +1,17 @@
-# React + Vite
+# Barcode Scanner with Excel Product Lookup
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This React application allows users to upload an Excel sheet containing product information (UPC, Bin, Product Name), input UPC codes, and generate the corresponding bin location in barcode format.
 
-Currently, two official plugins are available:
+# Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Excel File Upload: Upload a .xlsx or .xls file containing products with their UPC, Bin, and Product Name.
+UPC Lookup: Enter a UPC code to find the corresponding product's bin location and product name.
+Barcode Generation: Automatically generate a barcode for the bin location based on the entered UPC code.
+
+# Prerequisites
+
+Make sure you have the following installed on your machine:
+
+Node.js (>= v14)
+npm (>= v6)
+React.js
